@@ -8,6 +8,7 @@
   "compilerOptions": {
     "incremental": true,
     "tsBuildInfoFile": "./.tsbuildinfo",
+    "resolveJsonModule": true,
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -15,6 +16,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
+      "@/types/*": ["src/types/*"],
       "@/*": ["src/*"],
       "images/*": ["src/assets/images/*"]
     },
@@ -24,13 +26,9 @@
       "node",
       "jquery",
       "swiper",
-      "@types/bootstrap",
-      "./types/*",
-      "./types/aos"
+      "@types/bootstrap"
     ],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   }
-  // "include": ["src/**/*", "vite.config.ts"],
-  // "exclude": ["node_modules"],
 }

@@ -33,37 +33,13 @@
 
 <script setup lang="ts">
 import ProductCard from "@/components/ProductCard.vue";
-
-const productList = [
-  {
-    id: 1,
-    image: "src/assets/images/product-item1.jpg",
-    author: "string",
-    txt: "string",
-    price: 10,
-  },
-  {
-    id: 2,
-    image: "src/assets/images/product-item2.jpg",
-    author: "string",
-    txt: "string",
-    price: 10,
-  },
-  {
-    id: 3,
-    image: "src/assets/images/product-item3.jpg",
-    author: "string",
-    txt: "string",
-    price: 10,
-  },
-  {
-    id: 4,
-    image: "src/assets/images/product-item4.jpg",
-    author: "string",
-    txt: "string",
-    price: 10,
-  },
-];
+import { useProductList } from "@/stores/productList";
+const productList = useProductList().productList;
+// productList.map(item=>{
+//   return{
+//     item
+//   }
+// })
 </script>
 
 <style lang="scss" scoped>

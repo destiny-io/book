@@ -8,6 +8,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/view/Page01/Home.vue"),
   },
   {
+    path: "/aboutUs",
+    name: "aboutUs",
+    component: () => import("@/view/Page02/AboutUs.vue"),
+  },
+  {
+    path: "/ContactUs",
+    name: "ContactUs",
+    component: () => import("@/view/Page02/ContactUs.vue"),
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: () => import("@/view/NotFound.vue"),
@@ -18,6 +28,17 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL), // 使用 HTML5 History 模式
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash && to.path === from.path) {
+      return {
+        el: to.hash, // 要滚动到的目标元素
+        behavior: "smooth", // 平滑滚动
+        top: 100, // 距离顶部的偏移量
+      };
+    }
+
+    return savedPosition || { top: 0 };
+  },
 });
 
 export default router;

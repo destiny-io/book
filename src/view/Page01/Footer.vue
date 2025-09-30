@@ -23,7 +23,7 @@
 
           <div class="col-md-2">
             <div class="footer-menu">
-              <h5>About Us</h5>
+              <h5>关于我们</h5>
               <ul class="menu-list">
                 <li class="menu-item">
                   <a href="#">vision</a>
@@ -98,7 +98,7 @@
                   <a href="#">Suggesting edits</a>
                 </li>
                 <li class="menu-item">
-                  <a href="#">Contact us</a>
+                  <router-link to="/ContactUs">Contact us</router-link>
                 </li>
               </ul>
             </div>
@@ -110,43 +110,7 @@
 
     <div id="footer-bottom">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="copyright">
-              <div class="row">
-                <div class="col-md-6">
-                  <p>
-                    © 2022 All rights reserved. Free HTML Template by
-                    <a href="https://www.templatesjungle.com/" target="_blank"
-                      >TemplatesJungle</a
-                    >
-                  </p>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="social-links align-right">
-                    <ul>
-                      <li>
-                        <a href="#"><i class="icon icon-facebook"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="icon icon-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="icon icon-youtube-play"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="icon icon-behance-square"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--grid-->
-          </div>
-          <!--footer-bottom-content-->
-        </div>
+        <p>© 2022 All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -157,5 +121,13 @@
 <style scoped>
 .footerBox {
   text-align: left;
+
+  #footer-bottom {
+    text-align: center;
+    p {
+      margin: 0;
+      padding-bottom: 2.5rem;
+    }
+  }
 }
 </style>

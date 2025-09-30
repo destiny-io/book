@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <GlobalCart />
     <HeaderWrap></HeaderWrap>
     <Billboard />

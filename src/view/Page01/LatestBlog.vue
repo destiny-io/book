@@ -7,11 +7,11 @@
             <div class="title">
               <span>Read our articles</span>
             </div>
-            <h2 class="section-title">Latest Articles</h2>
+            <h2 class="section-title">我们的博客</h2>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" v-for="item in 3">
               <article class="column" data-aos="fade-up" data-aos-offset="-200">
                 <figure>
                   <a href="#" class="image-hvr-effect">
@@ -31,99 +31,6 @@
 
                   <div class="links-element">
                     <div class="categories">inspiration</div>
-                    <div class="social-links">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="icon icon-facebook"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="icon icon-twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"
-                            ><i class="icon icon-behance-square"></i
-                          ></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!--links-element-->
-                </div>
-              </article>
-            </div>
-            <div class="col-md-4">
-              <article class="column" data-aos="fade-up" data-aos-delay="100">
-                <figure>
-                  <a href="#" class="image-hvr-effect">
-                    <img
-                      src="images/post-img2.jpg"
-                      alt="post"
-                      class="post-image"
-                    />
-                  </a>
-                </figure>
-                <div class="post-item">
-                  <div class="meta-date">Mar 29, 2021</div>
-                  <h3>
-                    <a href="#">Reading books always makes the moments happy</a>
-                  </h3>
-
-                  <div class="links-element">
-                    <div class="categories">inspiration</div>
-                    <div class="social-links">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="icon icon-facebook"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="icon icon-twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"
-                            ><i class="icon icon-behance-square"></i
-                          ></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!--links-element-->
-                </div>
-              </article>
-            </div>
-            <div class="col-md-4">
-              <article class="column" data-aos="fade-up" data-aos-delay="200">
-                <figure>
-                  <a href="#" class="image-hvr-effect">
-                    <img
-                      src="images/post-img3.jpg"
-                      alt="post"
-                      class="post-image"
-                    />
-                  </a>
-                </figure>
-                <div class="post-item">
-                  <div class="meta-date">Feb 27, 2021</div>
-                  <h3>
-                    <a href="#">Reading books always makes the moments happy</a>
-                  </h3>
-
-                  <div class="links-element">
-                    <div class="categories">inspiration</div>
-                    <div class="social-links">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="icon icon-facebook"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="icon icon-twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"
-                            ><i class="icon icon-behance-square"></i
-                          ></a>
-                        </li>
-                      </ul>
-                    </div>
                   </div>
                   <!--links-element-->
                 </div>

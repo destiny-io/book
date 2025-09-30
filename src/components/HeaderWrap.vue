@@ -25,9 +25,7 @@
         <div class="row">
           <div class="col-md-2">
             <div class="main-logo">
-              <a href="index.html"
-                ><img src="images/main-logo.png" alt="logo"
-              /></a>
+              <a href="/"><img src="images/main-logo.png" alt="logo" /></a>
             </div>
           </div>
 
@@ -41,7 +39,7 @@
                     :class="{ active: tabIndex === index }"
                     @click="clickTab(index)"
                   >
-                    <a :href="'#' + item.tab">{{ item.content }}</a>
+                    <router-link :to="item.tab">{{ item.content }}</router-link>
                   </li>
                 </ul>
 
@@ -64,12 +62,12 @@ import { ref, onMounted, onUnmounted } from "vue";
 const tabIndex = ref(0);
 const isFixed = ref(false);
 const tabList = [
-  { content: "首页", tab: "billboard" },
-  { content: "Pages", tab: "pages" },
-  { content: "Featured", tab: "featured-books" },
-  { content: "Popular", tab: "popular-books" },
-  { content: "Offer", tab: "special-offer" },
-  { content: "Articles", tab: "latest-blog" },
+  { content: "首页", tab: "#billboard" },
+  { content: "精选", tab: "#featured-books" },
+  { content: "分类", tab: "#popular-books" },
+  { content: "优惠", tab: "#special-offer" },
+  { content: "blog", tab: "#latest-blog" },
+  { content: "关于我们", tab: "aboutUs" },
 ];
 
 const clickTab = (index: number) => {
