@@ -1,4 +1,5 @@
 <template>
+  <!-- 畅销书籍 -->
   <section id="best-selling" class="leaf-pattern-overlay">
     <div class="corner-pattern-overlay"></div>
     <div class="container">
@@ -48,5 +49,9 @@
 <style lang="scss" scoped>
 .product-entry {
   text-align: left;
+}
+
+.author-name {
+  color: var(--theme10);
 }
 </style>

@@ -11,7 +11,7 @@
           </div>
 
           <div class="product-list" data-aos="fade-up">
-            <ProductCard v-for="item in productList" :product="item" />
+            <ProductCard v-for="item in newProudct" :product="item" />
           </div>
           <!--grid-->
         </div>
@@ -34,12 +34,16 @@
 <script setup lang="ts">
 import ProductCard from "@/components/ProductCard.vue";
 import { useProductList } from "@/stores/productList";
+import type { GridItem } from "@/types/product";
+
 const productList = useProductList().productList;
-// productList.map(item=>{
-//   return{
-//     item
-//   }
-// })
+const newProudct: GridItem[] = [];
+for (let index = 0; index < productList.length; index++) {
+  if (index > 3) {
+    break;
+  }
+  newProudct.push(productList[index]);
+}
 </script>
 
 <style lang="scss" scoped>

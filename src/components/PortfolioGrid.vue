@@ -168,6 +168,7 @@ $projectGridItemWidth: 260px;
       &:last-child {
         margin-bottom: 5px;
       }
+      color: var(--theme08);
       padding-bottom: 0.2em;
       font-size: 20px;
       cursor: pointer;
@@ -195,7 +196,7 @@ $projectGridItemWidth: 260px;
       }
       &:hover,
       &-active {
-        color: #111;
+        color: var(--theme10);
       }
     }
   }

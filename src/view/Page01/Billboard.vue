@@ -1,4 +1,5 @@
 <template>
+  <!-- 首页轮播图 -->
   <section id="billboard">
     <swiper
       class="MainSlider"
@@ -35,9 +36,10 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import "swiper/swiper-bundle.css";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
 import type { Swiper as SwiperInstance } from "swiper";
 
 // 定义 Swiper 模块

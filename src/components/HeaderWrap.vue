@@ -11,6 +11,10 @@
               <a href="#" class="cart for-buy"
                 ><i class="icon icon-clipboard"></i><span>&nbsp;购物车</span></a
               >
+              <div class="switchTheme" @click.prevent="changeTheme">
+                <LightMode v-show="useTheme().Mode" />
+                <DarkMode v-show="!useTheme().Mode" />
+              </div>
             </div>
             <!--top-right-->
           </div>
@@ -32,14 +36,16 @@
           <div class="col-md-10">
             <nav id="navbar">
               <div class="main-menu stellarnav">
-                <ul class="menu-list">
+                <ul id="menu-list" class="menu-list">
                   <li
                     class="menu-item"
                     v-for="(item, index) in tabList"
-                    :class="{ active: tabIndex === index }"
+                    :class="{ active: useTabList().tabIndex === index }"
                     @click="clickTab(index)"
                   >
-                    <router-link :to="item.tab">{{ item.content }}</router-link>
+                    <router-link id="a-item" :to="item.tab">{{
+                      item.content
+                    }}</router-link>
                   </li>
                 </ul>
 
@@ -58,20 +64,17 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import { useTheme } from "@/stores/theme";
+import { useTabList } from "@/stores/tabList";
+import LightMode from "./svg/LightMode.vue";
+import DarkMode from "./svg/DarkMode.vue";
 
-const tabIndex = ref(0);
+const Theme = Array.from(useTheme().theme01);
 const isFixed = ref(false);
-const tabList = [
-  { content: "首页", tab: "#billboard" },
-  { content: "精选", tab: "#featured-books" },
-  { content: "分类", tab: "#popular-books" },
-  { content: "优惠", tab: "#special-offer" },
-  { content: "blog", tab: "#latest-blog" },
-  { content: "关于我们", tab: "aboutUs" },
-];
+const tabList = useTabList().tabList;
 
 const clickTab = (index: number) => {
-  tabIndex.value = index;
+  useTabList().clickTab(index);
 };
 
 // 滚动阈值（像素）
@@ -81,6 +84,14 @@ const scrollThreshold = 140;
 const handleScroll = () => {
   isFixed.value = window.scrollY >= scrollThreshold;
   // 可选：刷新 AOS 以确保动画正确触发
+};
+const changeTheme = () => {
+  console.log("更换主题");
+  if (!useTheme().Mode) {
+    useTheme().LightMode();
+  } else {
+    useTheme().DarkMode();
+  }
 };
 
 // 组件挂载时添加滚动监听
@@ -101,6 +112,25 @@ onUnmounted(() => {
   top: 0;
   z-index: 999;
   animation: fixedAnimation 0.3s ease-in;
+}
+
+ul li.active #a-item {
+  color: #daa556;
+}
+
+#a-item {
+  color: var(--theme04);
+}
+
+.right-element {
+  display: flex;
+  justify-content: right;
+  padding: 0 20px;
+  .switchTheme {
+    width: 1.6em;
+    cursor: pointer;
+    // background-color: #4eb642;
+  }
 }
 
 .header-placeholder {

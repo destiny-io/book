@@ -19,7 +19,7 @@
         @click="addToCart(product.id)"
         :class="{ added: CartState }"
       >
-        <AddToCartSvgAnimation v-show="CartState" :theme="'#74642F'" />
+        <AddToCartSvgAnimation v-show="CartState" :theme="'var(--theme11)'" />
         <!-- <AddToCartSvg v-model:isVisible="CartState" v-show="CartState"/> -->
         <span>{{ CartState ? "已添加到购物车" : "添加到购物车" }}</span>
       </button>
@@ -135,7 +135,9 @@ const addToCart = (id: number = 0) => {
     AddCartState.value = true;
   } else {
     // 根据商品id在列表中删除
-    const CartIndex = CartStateStore.CartList.findIndex((num) => num === id);
+    const CartIndex = CartStateStore.CartList.findIndex(
+      (num: number) => num === id
+    );
     CartStateStore.CartList.splice(CartIndex, 1);
     CartStateStore.CartHide(); // 让购物车隐藏
     AddCartState.value = false;
@@ -198,7 +200,7 @@ onUnmounted(() => {
           transform: translate(-50%, -50%);
           content: "";
           border-radius: 50%;
-          border: #74642f solid 5px;
+          border: var(--theme11) solid 5px;
           width: 130%;
           aspect-ratio: 1 / 1;
           z-index: 999;
@@ -207,8 +209,8 @@ onUnmounted(() => {
     }
     .product-img {
       position: relative;
-      background: #efeee8;
-      border: 1px solid #eae8df;
+      background: var(--theme07);
+      border: 1px solid var(--theme09);
       padding: 15%;
       cursor: pointer;
       width: 100%;
@@ -235,7 +237,7 @@ onUnmounted(() => {
       opacity: 0;
       transition: 0.3s ease-out;
       &.added {
-        background-color: #74642f;
+        background-color: var(--theme11);
         // color: ;
       }
       // span {
@@ -251,13 +253,16 @@ onUnmounted(() => {
       margin-bottom: 30px;
       text-align: center;
       .item-price {
-        color: #74642f;
+        color: var(--theme11);
         font-size: 1.3em;
+      }
+      span {
+        color: var(--theme08);
       }
       h3 {
         font-size: 1.4em;
         font-weight: 500;
-        color: #74642f;
+        color: var(--theme11);
         margin: 0;
       }
       p {

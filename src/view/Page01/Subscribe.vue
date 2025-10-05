@@ -45,4 +45,7 @@
 #subscribe {
   text-align: left;
 }
+.btn-subscribe {
+  color: var(--theme03);
+}
 </style>

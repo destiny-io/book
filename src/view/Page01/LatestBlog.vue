@@ -60,4 +60,7 @@
 #latest-blog {
   text-align: left;
 }
+.categories {
+  color: var(--theme03);
+}
 </style>

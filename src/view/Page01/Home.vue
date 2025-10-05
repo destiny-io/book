@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <GlobalCart />
     <HeaderWrap></HeaderWrap>
     <Billboard />
@@ -12,6 +12,7 @@
     <Subscribe />
     <LatestBlog />
     <Footer />
+    <GoToTop />
   </div>
 </template>
 
@@ -28,6 +29,7 @@ import SpecialOffer from "./SpecialOffer.vue";
 import Subscribe from "./Subscribe.vue";
 import Footer from "./Footer.vue";
 import GlobalCart from "@/components/GlobalCart.vue";
+import GoToTop from "@/components/GoToTop.vue";
 </script>
 
 <style scoped></style>

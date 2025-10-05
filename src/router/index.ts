@@ -29,14 +29,20 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL), // 使用 HTML5 History 模式
   routes,
   scrollBehavior(to, from, savedPosition) {
+    if (to.hash === "#billboard") {
+      return {
+        el: to.hash, // 要滚动到的目标元素
+        behavior: "smooth", // 平滑滚动
+        top: 200, // 距离顶部的偏移量
+      };
+    }
     if (to.hash && to.path === from.path) {
       return {
         el: to.hash, // 要滚动到的目标元素
         behavior: "smooth", // 平滑滚动
-        top: 100, // 距离顶部的偏移量
+        top: 80, // 距离顶部的偏移量
       };
     }
-
     return savedPosition || { top: 0 };
   },
 });

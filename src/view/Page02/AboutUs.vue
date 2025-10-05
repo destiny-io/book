@@ -153,11 +153,14 @@ const imageList = [
 <style lang="scss" scoped>
 .aboutUs {
   text-align: left;
-
+  background-color: var(--theme01);
   .Card {
     figure {
       margin-bottom: 2.5rem;
     }
   }
+}
+.breadcum-items {
+  color: var(--theme10);
 }
 </style>

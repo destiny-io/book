@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-// import type { GridItem } from "@/types/product";
-import type { GridItem } from "@/types/product.d";
+
+import type { GridItem } from "@/types/product";
 // 存储全局的书籍数据
 export const useProductList = defineStore("productList", () => {
   const productList: GridItem[] = [

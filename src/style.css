@@ -22,11 +22,14 @@ a:hover {
   color: #535bf2;
 }
 
+* {
+  transition: background-color 0.4s ease;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f3f2ec;
 }
 
 h1 {
@@ -108,7 +111,6 @@ Version: 1.1
   --secondary-color: #c5a992;
   --dark-color: #2f2f2f;
   --light-color: #f3f2ec;
-  --body-text-color: #757575;
   --light-text-color: #afafaf;
   --dark-text-color: #2f2f2f;
 }
@@ -382,7 +384,6 @@ body {
   font-family: var(--body-font);
   font-size: 16px;
   line-height: 2;
-  color: var(--body-text-color);
   background-color: var(--light-color);
 }
 
@@ -503,7 +504,8 @@ h6,
 .h6 {
   font-family: var(--heading-font);
   line-height: 1.2;
-  color: var(--dark-color);
+
+  color: var(--theme10);
 }
 
 h1.light,
@@ -581,6 +583,7 @@ h6 a {
 }
 
 p {
+  color: var(--theme08);
   margin: 0 0 20px 0;
 }
 
@@ -687,7 +690,7 @@ abbr {
 }
 
 .text-muted {
-  color: #777;
+  color: var(--theme04);
 }
 
 .text-pri {
@@ -1083,8 +1086,8 @@ fieldset[disabled] a.btn {
 }
 
 .btn.btn-outline-accent:hover {
-  border-color: var(--dark-color);
-  color: var(--dark-color) !important;
+  border-color: var(--theme10);
+  color: var(--theme10) !important;
 }
 
 .btn.btn-outline-light {
@@ -1555,7 +1558,7 @@ button {
 }
 
 .btn-wrap a:hover {
-  color: #74642f;
+  color: var(--theme11);
 }
 
 .btn-normal {
@@ -1577,7 +1580,7 @@ button {
 }
 
 .btn-accent-arrow {
-  color: #111;
+  color: var(--theme10);
 }
 
 .btn-wrap i.icon {
@@ -1681,7 +1684,7 @@ button {
 
 .section-title.divider:after {
   content: "";
-  border-bottom: 3px solid #74642f;
+  border-bottom: 3px solid var(--theme11);
   position: absolute;
   right: 0;
   bottom: -16px;
@@ -1762,8 +1765,8 @@ img.post-image {
 }
 
 .slick-dots .slick-active {
-  color: #74642F;
-  background: #74642F;
+  color: var(--theme11);
+  background: var(--theme11);
   border: 1px solid #D7D5CC;
   outline: 1px solid #D7d5cc;
 } */
@@ -1772,7 +1775,7 @@ img.post-image {
 --------------------------------------------------------------*/
 .top-content {
   padding: 15px 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--theme02);
 }
 
 .social-links ul {
@@ -1795,7 +1798,7 @@ img.post-image {
 }
 
 .top-content a {
-  color: #555;
+  color: var(--theme05);
   text-decoration: none;
 }
 
@@ -1831,7 +1834,7 @@ img.post-image {
 .action-menu .open-icon-wrap {
   width: 40px;
   height: 40px;
-  background: #efeee8;
+  background: var(--theme07);
   border-radius: 40px;
   display: flex;
   justify-content: right;
@@ -1845,7 +1848,7 @@ img.post-image {
   padding-right: 10px;
   padding-left: 10px;
   text-decoration: none;
-  color: var(--body-text-color);
+  color: var(--theme08);
 }
 
 #header-wrap.show .search-bar {
@@ -1862,7 +1865,7 @@ img.post-image {
   margin-bottom: 0;
   font-weight: 300;
   padding-left: 20px;
-  background: #efeee8;
+  background: var(--theme07);
 }
 
 .action-menu .side-nav-bar .menu-btn a,
@@ -1898,8 +1901,9 @@ img.post-image {
 ------------------------------------------------------------- */
 #header {
   padding: 20px 0;
-  border-bottom: 1px solid #e0e0e0;
-  background-color: #f3f2ec;
+  /* 浅色模式是#e0e0e0，深色模式是#363636 */
+  border-bottom: 1px solid var(--theme02);
+  background-color: var(--theme01);
 }
 
 #header .menu-list a {
@@ -1933,7 +1937,7 @@ img.post-image {
 .banner-content h2.banner-title {
   font-size: 4.5em;
   font-weight: 500;
-  color: #222;
+  color: var(--theme03);
 }
 
 .banner-content p {
@@ -1961,7 +1965,7 @@ img.post-image {
 }
 
 #billboard button.slick-arrow:hover {
-  border: 1px solid #74642f;
+  border: 1px solid var(--theme11);
   background-color: #e5e3da;
 }
 
@@ -2021,7 +2025,7 @@ img.post-image {
 /*----- Cient-holder Section
 --------------------------------------------------------------*/
 #client-holder {
-  background: #edebe4;
+  background: var(--theme06);
   padding: 105px 0;
 }
 
@@ -2041,7 +2045,7 @@ img.post-image {
 /*----- Best Selling Section Section
 --------------------------------------------------------------*/
 #best-selling {
-  background: #edebe4;
+  background: var(--theme06);
   padding: 120px 0;
 }
 
@@ -2062,7 +2066,7 @@ img.post-image {
 
 #best-selling .product-entry .item-price {
   font-size: 1.5em;
-  color: #74642f;
+  color: var(--theme11);
   margin-bottom: 40px;
 }
 
@@ -2132,12 +2136,14 @@ img.books-image {
 }
 
 #quotation q {
+  color: var(--theme08);
   display: block;
   font-size: 1.6em;
   padding: 40px 0;
 }
 
 #quotation .author-name {
+  color: var(--theme08);
   font-family: "Prata", Georgia, serif;
   font-size: 1.4em;
 }
@@ -2158,7 +2164,7 @@ img.books-image {
 /*----- Special Offer Section
 --------------------------------------------------------------*/
 #special-offer .section-header {
-  background: #edebe4;
+  background: var(--theme06);
   padding: 140px 0 220px;
   margin-bottom: -141px;
   z-index: -1;
@@ -2179,7 +2185,7 @@ span.prev-price {
 /*----- Subscribe Section
 --------------------------------------------------------------*/
 #subscribe {
-  background: #edebe4;
+  background: var(--theme06);
   padding: 120px 0;
 }
 
@@ -2280,7 +2286,7 @@ span.prev-price {
 
 #latest-blog .meta-date {
   font-family: "Prata", Georgia, serif;
-  color: #74642f;
+  color: var(--theme11);
   padding-bottom: 20px;
 }
 
@@ -2324,7 +2330,7 @@ span.prev-price {
 /*----- Contact Section
 --------------------------------------------------------------*/
 #download-app {
-  background: #edebe4;
+  background: var(--theme06);
   padding: 120px 0;
   overflow: hidden;
   z-index: 0;
@@ -2393,7 +2399,7 @@ footer#footer {
 }
 
 #footer .footer-menu ul a {
-  color: var(--dark-text-color);
+  color: var(--theme10);
   text-decoration: none;
 }
 
@@ -2437,7 +2443,7 @@ footer#footer {
 
 .product-style img.product-item {
   position: relative;
-  background: #efeee8;
+  background: var(--theme07);
   border: 1px solid #eae8df;
   padding: 15%;
   cursor: pointer;
@@ -2475,7 +2481,7 @@ footer#footer {
 .product-item figcaption > h3 {
   font-size: 1.4em;
   font-weight: 500;
-  color: #74642f;
+  color: var(--theme11);
   margin: 0;
 }
 .product-item figcaption > p {
@@ -2483,7 +2489,7 @@ footer#footer {
 }
 
 .product-item .item-price {
-  color: #74642f;
+  color: var(--theme11);
   font-size: 1.3em;
 }
 
