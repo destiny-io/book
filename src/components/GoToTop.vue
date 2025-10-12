@@ -16,7 +16,6 @@
     >
       <path
         d="M516.544 397.248a31.904 31.904 0 0 0-22.624 9.376L86.624 813.92a32 32 0 1 0 45.248 45.248l384.672-384.64 384.672 384.64a32 32 0 0 0 45.248-45.248L539.2 406.624a31.904 31.904 0 0 0-22.624-9.376zM96 192h832a32 32 0 0 1 0 64H96a32 32 0 1 1 0-64z"
-        fill="#000000"
         p-id="4842"
       ></path>
     </svg>
@@ -76,7 +75,7 @@ onUnmounted(() => {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid #74642f;
+  border: 2px solid var(--theme11);
   position: fixed;
   bottom: 50px;
   right: 40px;
@@ -94,6 +93,7 @@ onUnmounted(() => {
     animation: exit 0.5s ease forwards;
   }
   .icon {
+    fill: var(--theme10);
     width: 100%;
     height: 100%;
   }

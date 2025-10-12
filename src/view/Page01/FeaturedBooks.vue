@@ -21,9 +21,13 @@
       <div class="row">
         <div class="col-md-12">
           <div class="btn-wrap align-right">
-            <a href="#" class="btn-accent-arrow"
+            <router-link to="/shop" class="btn-accent-arrow">
+              View all products
+              <i class="icon icon-ns-arrow-right"></i>
+            </router-link>
+            <!-- <a href="#" class="btn-accent-arrow"
               >View all products <i class="icon icon-ns-arrow-right"></i
-            ></a>
+            ></a> -->
           </div>
         </div>
       </div>

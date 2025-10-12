@@ -7,5 +7,5 @@ declare module "*.vue" {
 }
 declare module "@/stores/globalCartState";
 declare module "@/stores/productList";
-
+declare module "gsap/gsap-core";
 declare module "pinia";

@@ -30,6 +30,25 @@ import Subscribe from "./Subscribe.vue";
 import Footer from "./Footer.vue";
 import GlobalCart from "@/components/GlobalCart.vue";
 import GoToTop from "@/components/GoToTop.vue";
+
+import { useAos } from "@/stores/aos";
+import { onMounted } from "vue";
+import Aos from "aos";
+onMounted(() => {
+  // 初始化 AOS
+  if (useAos().aos) {
+    Aos.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+      offset: 120,
+    });
+    useAos().handleAos();
+  } else {
+    // console.log("不需要淡入动画");
+    Aos.init({ disable: true });
+  }
+});
 </script>
 
 <style scoped></style>

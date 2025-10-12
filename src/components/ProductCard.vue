@@ -1,7 +1,11 @@
 <template>
   <div class="product-item">
     <figure class="product-style">
-      <div class="AnimationImgPlus" v-show="AddCartState" :style="cssVars">
+      <div
+        class="AnimationImgPlus"
+        v-show="AddCartState && productAnimation"
+        :style="cssVars"
+      >
         <div class="AnimationImg" ref="AnimationImgDiv">
           <img :src="product.image" alt="Books" />
         </div>
@@ -66,6 +70,7 @@ interface Product {
 const props = withDefaults(
   defineProps<{
     product?: Product;
+    productAnimation?: boolean;
   }>(),
   {
     product: () => ({
@@ -75,6 +80,7 @@ const props = withDefaults(
       txt: "Armor Ramsey",
       price: 10,
     }),
+    productAnimation: true,
   }
 );
 
@@ -104,6 +110,11 @@ const hiddenAddCartState = debounce(() => {
 // 处理添加到购物车的事件
 const addToCart = (id: number = 0) => {
   emit("add-to-cart", props.product);
+  if (!props.productAnimation) {
+    console.log("不用执行动画");
+    CartState.value = !CartState.value;
+    return;
+  }
   // 取AnimationImg的位置信息
   const rect02 = AnimationImg.value.getBoundingClientRect();
   const rect02list = [

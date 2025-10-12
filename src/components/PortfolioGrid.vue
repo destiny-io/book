@@ -185,7 +185,7 @@ $projectGridItemWidth: 260px;
         left: 0px;
         width: 100%;
         border-bottom: 2px solid #9a884c;
-        z-index: 999;
+        z-index: 909;
         transition: all 0.4s ease;
         transform-origin: center;
         transform: scaleX(0);

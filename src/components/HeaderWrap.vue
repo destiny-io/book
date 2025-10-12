@@ -35,22 +35,32 @@
 
           <div class="col-md-10">
             <nav id="navbar">
-              <div class="main-menu stellarnav">
-                <ul id="menu-list" class="menu-list">
+              <div class="main-menu" :class="{ mobile: useMobile().mobile }">
+                <ul
+                  ref="navbar"
+                  id="menu-list"
+                  :class="{
+                    'menu-list': !useMobile().mobile,
+                    menuActive: useMobile().mobile,
+                  }"
+                >
                   <li
                     class="menu-item"
                     v-for="(item, index) in tabList"
                     :class="{ active: useTabList().tabIndex === index }"
                     @click="clickTab(index)"
                   >
-                    <router-link id="a-item" :to="item.tab">{{
-                      item.content
-                    }}</router-link>
+                    <router-link id="a-item" :to="item.tab">
+                      {{ item.content }}
+                    </router-link>
                   </li>
                 </ul>
 
-                <div class="hamburger">
-                  <span class="bar" v-for="value in 3"></span>
+                <div class="hamburger" @click="handleMenu">
+                  <div class="bar">
+                    <span v-for="value in 3"></span>
+                  </div>
+                  <div class="menu">MENU</div>
                 </div>
               </div>
             </nav>
@@ -63,15 +73,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, VueElement, nextTick } from "vue";
 import { useTheme } from "@/stores/theme";
 import { useTabList } from "@/stores/tabList";
 import LightMode from "./svg/LightMode.vue";
 import DarkMode from "./svg/DarkMode.vue";
-
-const Theme = Array.from(useTheme().theme01);
+import { useMobile } from "@/stores/mobile";
+import { gsap } from "gsap";
+gsap.registerPlugin();
 const isFixed = ref(false);
 const tabList = useTabList().tabList;
+// navbar
+const navbar = ref<HTMLElement | null>(null);
 
 const clickTab = (index: number) => {
   useTabList().clickTab(index);
@@ -94,9 +107,38 @@ const changeTheme = () => {
   }
 };
 
+// 点击菜单后，触发的函数
+const handleMenu = () => {
+  if (useMobile().menu) {
+    useMobile().close();
+    // 打开菜单
+    // 先将元素的高度设置为0，然后动画到自动高度
+    gsap.set(navbar.value, { height: "0" }); // 预计算 auto
+    gsap.fromTo(
+      navbar.value,
+      { height: 0 },
+      {
+        height: "auto",
+        duration: 0.5,
+        ease: "power2.inOut",
+      }
+    );
+  } else {
+    useMobile().open();
+    console.log("关闭菜单");
+    // 关闭菜单
+    gsap.to(navbar.value, {
+      height: 0,
+      duration: 0.5,
+      ease: "power2.inOut",
+    });
+  }
+};
+
 // 组件挂载时添加滚动监听
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
+  // console.log(navbar.value);
 });
 
 // 组件卸载时移除监听
@@ -144,12 +186,96 @@ ul li.active #a-item {
   }
 }
 
+#navbar {
+  .main-menu {
+    .hamburger {
+      display: none;
+    }
+    &.mobile {
+      // background-color: aqua;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column-reverse;
+      ul {
+        // display: none;
+        height: 0;
+        overflow: hidden;
+      }
+      .hamburger {
+        cursor: pointer;
+        width: fit-content;
+        height: 2em;
+        display: flex;
+        gap: 6px;
+        .bar {
+          padding: 6px 0;
+          width: 1.6em;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--theme05);
+          }
+        }
+        .menu {
+          width: fit-content;
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+    width: 100%;
+    z-index: 10;
+    position: relative;
+    line-height: normal;
+    ul {
+      list-style: none;
+    }
+    .menu-list {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+      li {
+        position: relative;
+        line-height: normal;
+        a {
+          padding: 10px 20px;
+        }
+      }
+    }
+    .menuActive {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--theme02);
+      li {
+        padding: 15px;
+        width: fit-content;
+      }
+    }
+  }
+}
+
 @keyframes fixedAnimation {
   0% {
     transform: translateY(-84px);
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    .main-menu {
+      &.mobile {
+        justify-content: flex-start;
+      }
+    }
   }
 }
 </style>

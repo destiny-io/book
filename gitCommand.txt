@@ -1,0 +1,21 @@
+git add . // 添加所有更改
+git commit -m "Commit message" // 提交更改
+git status // 工作区状态
+
+# 查看提交历史（精简版）  
+git log --oneline --graph
+git log --oneline --graph --all // 结合图形化分支展示
+
+git branch：列出所有本地分支并显示当前所在分支。
+git branch [branch-name]：创建新分支。
+git checkout [branch-name]：切换分支。
+git merge [branch]：合并指定分支到当前分支。
+
+git push origin master将本地分支推送到远程仓库。
+
+git ls-files ：列出所有已跟踪的文件（查看暂存区的文件）
+git ls-files -o：列出所有未跟踪的文件
+
+# 创建标签  
+git tag v1.0            # 轻量标签  
+git tag -a v1.0 -m "版本说明"  # 附注标签
