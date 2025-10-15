@@ -107,6 +107,7 @@ const onSlideChange = (swiper: SwiperInstance) => {
 }
 
 .MainSlider {
+  user-select: none;
   padding: 6em 0;
   font-size: 16px;
 }

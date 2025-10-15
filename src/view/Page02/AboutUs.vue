@@ -1,24 +1,6 @@
 <template>
   <div class="aboutUs">
-    <div class="site-banner">
-      <div class="banner-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="colored">
-                <h1 class="page-title">关于我们</h1>
-                <div class="breadcum-items">
-                  <span class="item">
-                    <router-link to="/">首页&nbsp;/&nbsp;</router-link>
-                  </span>
-                  <span class="item colored">About Us</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <SiteBanner pageTitle1="关于我们" pageTitle2="About Us" />
     <!--site-banner-->
 
     <section class="chief-detail padding-medium">
@@ -109,6 +91,7 @@
 </template>
 
 <script setup lang="ts">
+import SiteBanner from "@/components/SiteBanner.vue";
 import Footer from "@/view/Page01/Footer.vue";
 
 const imageList = [
@@ -152,6 +135,7 @@ const imageList = [
 
 <style lang="scss" scoped>
 .aboutUs {
+  padding-top: 50px;
   text-align: left;
   background-color: var(--theme01);
   .Card {

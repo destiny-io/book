@@ -1,20 +1,6 @@
 <template>
   <div class="ContactUs">
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="page-title">联系我们</h1>
-            <div class="breadcrumbs">
-              <span class="item"
-                ><router-link to="/">首页 / </router-link></span
-              >
-              <span class="item">Contact us</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SiteBanner pageTitle1="联系我们" pageTitle2="Contact Us" />
 
     <section class="contact-information padding-medium mt-3">
       <div class="container">
@@ -123,12 +109,14 @@
 </template>
 
 <script setup lang="ts">
+import SiteBanner from "@/components/SiteBanner.vue";
 import Footer from "@/view/Page01/Footer.vue";
 // 这个是联系我们
 </script>
 
 <style lang="scss" scoped>
 .ContactUs {
+  padding-top: 50px;
   text-align: left;
 }
 </style>

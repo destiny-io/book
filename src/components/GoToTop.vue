@@ -59,7 +59,7 @@ const winScroll = debounce(() => {
     Active.value = false;
     showToTop();
   }
-  console.log(window.scrollY);
+  // console.log(window.scrollY);
 }, 300);
 onMounted(() => {
   window.addEventListener("scroll", winScroll);

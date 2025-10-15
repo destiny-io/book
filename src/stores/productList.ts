@@ -6,7 +6,7 @@ export const useProductList = defineStore("productList", () => {
   const productList: GridItem[] = [
     {
       id: 1,
-      image: "src/assets/images/tab-item1.jpg",
+      image: "/src/assets/images/tab-item1.jpg",
       txt: "Simple way of piece life", // 介绍
       author: "Armor Ramsey", // 作者
       price: 26, // 价格
@@ -14,7 +14,7 @@ export const useProductList = defineStore("productList", () => {
     },
     {
       id: 2,
-      image: "src/assets/images/tab-item2.jpg",
+      image: "/src/assets/images/tab-item2.jpg",
       author: "Simple way of piece life",
       txt: "Armor Ramsey",
       price: 26,
@@ -22,7 +22,7 @@ export const useProductList = defineStore("productList", () => {
     },
     {
       id: 3,
-      image: "src/assets/images/tab-item3.jpg",
+      image: "/src/assets/images/tab-item3.jpg",
       author: "Simple way of piece life",
       txt: "Armor Ramsey",
       price: 26,
@@ -30,7 +30,7 @@ export const useProductList = defineStore("productList", () => {
     },
     {
       id: 4,
-      image: "src/assets/images/tab-item4.jpg",
+      image: "/src/assets/images/tab-item4.jpg",
       author: "Simple way of piece life",
       txt: "Armor Ramsey",
       price: 26,
@@ -38,7 +38,7 @@ export const useProductList = defineStore("productList", () => {
     },
     {
       id: 5,
-      image: "src/assets/images/tab-item5.jpg",
+      image: "/src/assets/images/tab-item5.jpg",
       author: "Simple way of piece life",
       txt: "Armor Ramsey",
       price: 26,
@@ -46,7 +46,7 @@ export const useProductList = defineStore("productList", () => {
     },
     {
       id: 6,
-      image: "src/assets/images/tab-item6.jpg",
+      image: "/src/assets/images/tab-item6.jpg",
       author: "Simple way of piece life",
       txt: "Armor Ramsey",
       price: 26,
@@ -54,7 +54,7 @@ export const useProductList = defineStore("productList", () => {
     },
     {
       id: 7,
-      image: "src/assets/images/tab-item7.jpg",
+      image: "/src/assets/images/tab-item7.jpg",
       author: "Simple way of piece life",
       txt: "Armor Ramsey",
       price: 10,
@@ -62,7 +62,7 @@ export const useProductList = defineStore("productList", () => {
     },
     {
       id: 8,
-      image: "src/assets/images/tab-item8.jpg",
+      image: "/src/assets/images/tab-item8.jpg",
       author: "Simple way of piece life",
       txt: "Armor Ramsey",
       price: 10,

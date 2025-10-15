@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="btn-wrap align-right">
-            <router-link to="/shop" class="btn-accent-arrow">
+            <router-link to="/shop/1" class="btn-accent-arrow">
               View all products
               <i class="icon icon-ns-arrow-right"></i>
             </router-link>

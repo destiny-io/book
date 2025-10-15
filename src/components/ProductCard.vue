@@ -1,6 +1,11 @@
 <template>
-  <div class="product-item">
-    <figure class="product-style">
+  <div
+    @click.prevent="productClick(product.id)"
+    class="product-item"
+    :class="{ NoMore: product.id === -1 }"
+  >
+    <div class="noMoreBox" v-if="product.id === -1">没有更多了</div>
+    <figure class="product-style" v-if="product.id != -1">
       <div
         class="AnimationImgPlus"
         v-show="AddCartState && productAnimation"
@@ -20,7 +25,7 @@
         type="button"
         class="add-to-cart"
         data-product-tile="add-to-cart"
-        @click="addToCart(product.id)"
+        @click.stop="addToCart(product.id)"
         :class="{ added: CartState }"
       >
         <AddToCartSvgAnimation v-show="CartState" :theme="'var(--theme11)'" />
@@ -41,6 +46,10 @@ import { computed, ref, onUnmounted, onMounted, nextTick } from "vue";
 import { useCartStateStore } from "../stores/globalCartState";
 import AddToCartSvgAnimation from "./svg/AddToCartSvgAnimation.vue";
 import { debounce } from "../js/utility/debounce";
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const CartState = ref(false);
 const CartStateStore = useCartStateStore();
 const AddCartState = ref(false);
@@ -75,7 +84,7 @@ const props = withDefaults(
   {
     product: () => ({
       id: 0,
-      image: "src/assets/images/product-item1.jpg",
+      image: "/src/assets/images/product-item1.jpg",
       author: "Simple way of piece life",
       txt: "Armor Ramsey",
       price: 10,
@@ -88,6 +97,13 @@ const props = withDefaults(
 const emit = defineEmits<{
   (e: "add-to-cart", product: Product): void;
 }>();
+
+const productClick = (id: number = 0) => {
+  router.push({
+    name: "ProductSingle",
+    params: { id: id },
+  });
+};
 
 // 图片
 const AnimationImgDiv: any = ref(null);
@@ -181,6 +197,21 @@ onUnmounted(() => {
 .product-item {
   width: 100%;
   height: fit-content;
+  &.NoMore {
+    height: 100%;
+    padding-bottom: 57px;
+    .noMoreBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 15%;
+      background: var(--theme07);
+      border: 1px solid var(--theme09);
+      font-size: 20px;
+    }
+  }
   .product-style {
     width: 100%;
     position: relative;

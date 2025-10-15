@@ -21,6 +21,23 @@ const routes: Array<RouteRecordRaw> = [
     path: "/Shop",
     name: "shop",
     component: () => import("@/view/Page02/Shop.vue"),
+    children: [
+      {
+        path: ":id",
+        name: "ShopSlider",
+        component: () => import("@/components/ShopSlider.vue"),
+        props: (route) => ({
+          id: route.params.id,
+          category: route.query.category || "default",
+        }),
+      },
+    ],
+  },
+  {
+    path: "/ProductSingle/:id",
+    name: "ProductSingle",
+    component: () => import("@/view/Page02/ProductSingle.vue"),
+    props: true,
   },
   {
     path: "/:pathMatch(.*)*",
